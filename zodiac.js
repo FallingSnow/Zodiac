@@ -177,3 +177,4 @@ var Zodiac = (function () {
             clearTimeout(id);
         };
 }());
+window['Zodiac'] = Zodiac;
