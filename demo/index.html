@@ -22,13 +22,17 @@
 <body>
 
    <canvas id="zodiac"></canvas>
+   <div style="position: fixed; top: 0; left: 0;">
+   <button onClick="window.zodiac.play();">play</button>
+   <button onClick="window.zodiac.pause();">pause</button>
+   </div>
 
    <script src="../zodiac.js"></script>
    <script>
 
       document.addEventListener('DOMContentLoaded', function () {
 
-         new Zodiac('zodiac',                      // HTMLCanvasElement or id
+         window.zodiac = new Zodiac('zodiac',                      // HTMLCanvasElement or id
             {                                      //// OPTIONS
                directionX: 0,                      // -1:left;0:random;1:right
                directionY: -1,                     // -1:up;0:random;1:down

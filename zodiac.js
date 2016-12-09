@@ -15,6 +15,7 @@
 var Zodiac = (function () {
     function Zodiac(canvas, options) {
         var _this = this;
+        this.playing = false;
         if (options === void 0) { options = {}; }
         this.options = {
             directionX: -1,
@@ -87,7 +88,7 @@ var Zodiac = (function () {
             ;
             ctx.stroke();
             options.dotColor && ctx.fill();
-            requestAnimationFrame(update);
+            _this.animationRequest = requestAnimationFrame(update);
         };
         function onMousemove(ev) {
             tilt.x = ev.pageX - window.innerWidth / 2;
@@ -133,11 +134,23 @@ var Zodiac = (function () {
             ctx.lineWidth = options.linkWidth;
             ctx.fillStyle = options.dotColor;
         };
+        this.pause = function() {
+            if (_this.playing) {
+                cancelAnimationFrame(_this.animationRequest);
+                _this.playing = false;
+            }
+        };
+        this.play = function() {
+            if (!_this.playing) {
+                _this.animationRequest = requestAnimationFrame(update);
+                _this.playing = true;
+            }
+        }
         window.addEventListener('resize', onResize, false);
         document.addEventListener('mousemove', onMousemove, false);
         window.addEventListener('deviceorientation', onOrientation, false);
         onResize();
-        update();
+        this.play();
     }
     return Zodiac;
 })();
