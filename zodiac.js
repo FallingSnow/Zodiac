@@ -41,6 +41,7 @@ var Zodiac = (function () {
             this.options[key] = options[key];
         }
         options = this.options;
+        options.linkDistanceSquared = options.linkDistance * options.linkDistance;
         var ctx = this._ctx = canvas.getContext('2d', { alpha: !options.backgroundColor }), tilt = { x: 0, y: 0 }, _, w, h;
         var update = function () {
             if (options.backgroundColor) {
@@ -73,8 +74,8 @@ var Zodiac = (function () {
                 ctx.moveTo(x + p.r, y);
                 ctx.arc(x, y, p.r, 0, Math.PI * 2);
                 for (var j = i - 1; j >= 0; j--) {
-                    var q = _[j], dx = q.x - p.x, dy = q.y - p.y, dist = Math.sqrt((dx * dx) + (dy * dy));
-                    if (dist < options.linkDistance) {
+                    var q = _[j], dx = q.x - p.x, dy = q.y - p.y, distSquared = (dx * dx) + (dy * dy);
+                    if (distSquared < options.linkDistanceSquared) {
                         var x = p.x + p.dx, y = p.y + p.dy, x2 = q.x + q.dx, y2 = q.y + q.dy, a = Math.atan2(y2 - y, x2 - x), cos = Math.cos(a), sin = Math.sin(a);
                         x += p.r * cos;
                         y += p.r * sin;
