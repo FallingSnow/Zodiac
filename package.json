@@ -1,0 +1,22 @@
+{
+  "name": "zodiac",
+  "version": "1.0.0",
+  "description": "rewrite of jnicol/particleground",
+  "main": "zodiac.min.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/FallingSnow/Zodiac.git"
+  },
+  "author": "indus (Stefan Keim)",
+  "contributors": [
+      "FallingSnow (Ayrton Sparling) <ayrton@sparling.us>"
+  ],
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/FallingSnow/Zodiac/issues"
+  },
+  "homepage": "https://github.com/FallingSnow/Zodiac#readme"
+}
