@@ -177,4 +177,7 @@ var Zodiac = (function () {
             clearTimeout(id);
         };
 }());
-window['Zodiac'] = Zodiac;
+if (window)
+    window['Zodiac'] = Zodiac;
+if(typeof module === "object" && module.exports)
+    module.exports = Zodiac;
