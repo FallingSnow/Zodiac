@@ -135,19 +135,19 @@ var Zodiac = (function () {
             ctx.lineWidth = options.linkWidth;
             ctx.fillStyle = options.dotColor;
         };
-        this.pause = function() {
+        this['pause'] = function() {
             if (_this.playing) {
                 cancelAnimationFrame(_this.animationRequest);
                 _this.playing = false;
             }
         };
-        this.play = function() {
+        this['play'] = function() {
             if (!_this.playing) {
                 _this.animationRequest = requestAnimationFrame(update);
                 _this.playing = true;
             }
         }
-        this.destroy = function() {
+        this['destroy'] = function() {
             _this.pause();
             window.removeEventListener('resize', onResize);
             document.removeEventListener('mousemove', onMousemove, false);
