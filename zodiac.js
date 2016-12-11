@@ -184,5 +184,5 @@ var Zodiac = (function () {
         };
 }());
 
-if(typeof module === "object" && module.exports)
-    module.exports = Zodiac;
+if (typeof module === "object" && module['exports'])
+    module['exports'] = Zodiac;
