@@ -147,6 +147,12 @@ var Zodiac = (function () {
                 _this.playing = true;
             }
         }
+        this.destroy = function() {
+            _this.pause();
+            window.removeEventListener('resize', onResize);
+            document.removeEventListener('mousemove', onMousemove, false);
+            window.removeEventListener('deviceorientation', onOrientation, false);
+        }
         window.addEventListener('resize', onResize, false);
         document.addEventListener('mousemove', onMousemove, false);
         window.addEventListener('deviceorientation', onOrientation, false);
@@ -177,7 +183,6 @@ var Zodiac = (function () {
             clearTimeout(id);
         };
 }());
-if (window)
-    window['Zodiac'] = Zodiac;
+
 if(typeof module === "object" && module.exports)
     module.exports = Zodiac;
